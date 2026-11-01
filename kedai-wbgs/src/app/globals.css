@@ -1,0 +1,945 @@
+/* ===== Token desain (diambil dari mockup Kedai WBGS) ===== */
+:root {
+  --red: #b3271e;
+  --red-dark: #8f1f18;
+  --cream: #faf4ee;
+  --salmon: #f0d9ce;
+  --salmon-ink: #6b5a52;
+  --border: #eee4da;
+  --dash: #c9bdb2;
+  --dark: #1a1a1a;
+  --gray: #6b6b6b;
+  --body: #4a4a4a;
+  --pink: #fff4f2;
+  --green: #1e7b4b;
+  --amber-bg: #fff1d6;
+  --amber: #e39a00;
+  --amber-ink: #7a4b00;
+  --font: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ===== Reset ringan ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font);
+  color: var(--dark);
+  background: var(--cream);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ===== Tata letak umum ===== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.container.narrow {
+  max-width: 624px;
+}
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page--with-bar {
+  padding-bottom: 80px;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.row--between {
+  justify-content: space-between;
+}
+.muted {
+  color: var(--gray);
+}
+.small,
+.tiny {
+  font-size: 10px;
+}
+.center {
+  text-align: center;
+}
+.divider {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: var(--border);
+}
+
+/* ===== Header ===== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.app-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--red);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+}
+.back-btn {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--dark);
+  text-decoration: none;
+}
+.app-header__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.overline {
+  font-size: 10px;
+  color: var(--gray);
+}
+.app-header__title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.table-badge {
+  background: var(--red);
+  color: #fff;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ===== Tombol ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 28px;
+  border-radius: 22px;
+  border: 1.5px solid var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--red-dark);
+}
+.btn-outline {
+  background: #fff;
+  color: var(--red);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-block {
+  width: 100%;
+}
+.btn-grow {
+  flex: 1;
+}
+.btn-small {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  font-size: 12px;
+}
+.btn-add {
+  border: 1.5px solid var(--red);
+  background: #fff;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex: none;
+}
+.btn-add--sm {
+  height: 32px;
+  padding: 0 14px;
+}
+.btn-add--md {
+  height: 40px;
+  padding: 0 18px;
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+.stepper__btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--red);
+  background: #fff;
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+.stepper__btn--filled {
+  background: var(--red);
+  color: #fff;
+}
+.stepper__qty {
+  min-width: 16px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.stepper--sm {
+  gap: 4px;
+}
+.stepper--sm .stepper__btn {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+.stepper--sm .stepper__qty {
+  min-width: 14px;
+  font-size: 12px;
+}
+
+/* ===== Bar bawah (mobile) ===== */
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+.bar__total {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  font-size: 14px;
+}
+.bar--stack {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.bar--stack .btn,
+.actions-desktop .btn {
+  flex: none;
+}
+.actions-desktop {
+  display: none;
+}
+
+/* ===== Menu ===== */
+.menu-layout {
+  display: block;
+}
+.menu-main {
+  display: flex;
+  flex-direction: column;
+}
+.menu-aside {
+  display: none;
+}
+.band {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 -16px;
+  padding: 16px;
+}
+.band--white {
+  background: #fff;
+}
+.band--cream {
+  background: var(--cream);
+}
+.band:last-child {
+  padding-bottom: 24px;
+}
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.hint {
+  font-size: 10px;
+  color: var(--gray);
+}
+.pills {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pills::-webkit-scrollbar {
+  display: none;
+}
+.pill {
+  flex: none;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 19px;
+  border: 1.5px solid var(--red);
+  background: #fff;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.pill--active {
+  background: var(--red);
+  color: #fff;
+}
+.photo {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--salmon);
+  color: var(--salmon-ink);
+  font-size: 10px;
+}
+.photo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo--square {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+.photo--row {
+  width: 64px;
+  height: 64px;
+}
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 8px;
+}
+.rec-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.rec-card__badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--red);
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 9px;
+  font-weight: 700;
+}
+.rec-card__info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rec-card__text {
+  flex: 1;
+  min-width: 0;
+}
+.item-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+.item-price {
+  font-size: 11px;
+  color: var(--gray);
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+.menu-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.menu-row__text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Kartu, ringkasan ===== */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.card__title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.summary-panel {
+  gap: 14px;
+  padding: 20px;
+  border-radius: 16px;
+}
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+}
+.lines li {
+  gap: 8px;
+}
+.empty-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  padding: 16px;
+  border: 1px dashed var(--dash);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--gray);
+}
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 16px;
+  text-align: center;
+}
+.empty-state strong {
+  font-size: 14px;
+}
+.empty-state p {
+  font-size: 12px;
+  color: var(--gray);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.field label,
+.field-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+.field--compact label {
+  font-size: 12px;
+}
+.textarea {
+  width: 100%;
+  min-height: 64px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 12px;
+  resize: none;
+}
+.input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--dash);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 13px;
+}
+.total-row {
+  font-size: 13px;
+  font-weight: 700;
+}
+.total-amount {
+  font-size: 15px;
+  font-weight: 800;
+}
+.hint-text {
+  font-size: 11px;
+  color: var(--gray);
+}
+
+/* ===== Pembayaran ===== */
+.pay-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'summary' 'methods';
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+.pay-summary {
+  grid-area: summary;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pay-methods {
+  grid-area: methods;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.method-group {
+  display: flex;
+  flex-direction: column;
+}
+.group-title {
+  margin: 6px 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+.method {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.method input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.method__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.method__name {
+  font-size: 13px;
+  font-weight: 700;
+}
+.method__desc {
+  font-size: 11px;
+  color: var(--gray);
+}
+.method__dot {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px solid var(--dash);
+  background: #fff;
+}
+.method:has(input:checked) {
+  border-color: var(--red);
+  box-shadow: 0 0 0 0.5px var(--red);
+  background: var(--pink);
+}
+.method:has(input:checked) .method__dot {
+  border: 5px solid var(--red);
+}
+.method:has(input:focus-visible) {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ===== Instruksi bayar ===== */
+.pay-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 24px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--amber-bg);
+  color: var(--amber-ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+.chip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+.timer {
+  font-size: 12px;
+  color: var(--gray);
+}
+.timer strong {
+  font-weight: 800;
+  color: var(--dark);
+}
+.pay-card {
+  width: 100%;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 16px;
+}
+.pay-card .row {
+  width: 100%;
+}
+.qr-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 1.5px dashed var(--dash);
+  border-radius: 12px;
+  background: var(--cream);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--salmon-ink);
+}
+.va-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1.5px dashed var(--dash);
+  border-radius: 12px;
+  background: var(--cream);
+}
+.va-box__num {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+.order-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 12px;
+  color: var(--gray);
+}
+.order-code strong {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--dark);
+}
+.total-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--gray);
+}
+.total-block strong {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--dark);
+}
+.howto {
+  width: 100%;
+  padding: 14px 16px;
+  gap: 8px;
+}
+.howto ol {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--body);
+}
+.receipt {
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 12px;
+}
+.note-line {
+  font-size: 12px;
+  color: var(--gray);
+}
+.check-circle {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+}
+.success-title {
+  font-size: 18px;
+  font-weight: 800;
+}
+.status-card {
+  width: 100%;
+  padding: 16px;
+  gap: 12px;
+  border-radius: 16px;
+}
+.status-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.status-step--next {
+  font-weight: 400;
+  color: var(--gray);
+}
+.indicator {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--dash);
+  background: #fff;
+}
+.indicator--done {
+  border: 0;
+  background: var(--green);
+  color: #fff;
+}
+.indicator--now {
+  border: 5px solid var(--red);
+}
+
+/* ===== Layar tablet ke atas ===== */
+@media (min-width: 768px) {
+  .rec-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .rec-card {
+    gap: 8px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .item-name {
+    font-size: 13px;
+  }
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+  }
+  .photo--row {
+    width: 72px;
+    height: 72px;
+  }
+  .method-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px 16px;
+  }
+}
+
+/* ===== Layar lebar (web) ===== */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .container.narrow {
+    max-width: 624px;
+  }
+  .page--with-bar {
+    padding-bottom: 0;
+  }
+  .app-header__inner {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    gap: 10px;
+  }
+  .logo {
+    width: 44px;
+    height: 44px;
+    font-size: 9px;
+  }
+  .table-badge {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+  .bar {
+    display: none;
+  }
+  .actions-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .menu-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 32px;
+    align-items: start;
+    padding-top: 24px;
+  }
+  .menu-main {
+    gap: 24px;
+  }
+  .menu-aside {
+    display: block;
+    position: sticky;
+    top: 96px;
+  }
+  .band {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .band--white,
+  .band--cream {
+    background: transparent;
+  }
+  .band:last-child {
+    padding-bottom: 0;
+  }
+  .section-title {
+    font-size: 16px;
+  }
+  .hint {
+    display: none;
+  }
+  .pills {
+    flex-wrap: wrap;
+    gap: 12px;
+    overflow: visible;
+  }
+  .pill {
+    padding: 0 22px;
+  }
+  .pay-layout {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-areas: 'methods summary';
+    gap: 32px;
+    align-items: start;
+    padding-top: 24px;
+  }
+  .pay-summary {
+    position: sticky;
+    top: 96px;
+  }
+}
