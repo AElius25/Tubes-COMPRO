@@ -4,7 +4,7 @@ import { OrderProvider } from '@/context/OrderContext';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Kedai WBGS - Order',
+  title: 'Kedai Antasena - Order',
   description: 'Pesan makanan dan minuman langsung dari meja.',
 };
 

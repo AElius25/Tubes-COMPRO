@@ -1,4 +1,4 @@
-# Kedai WBGS - Self Order (Next.js)
+# Kedai Antasena - Self Order (Next.js)
 
 Front end pemesanan mandiri dari meja: menu, keranjang, pembayaran, instruksi bayar, dan halaman berhasil.
 Satu codebase responsif: mobile (bar bawah) dan web (>= 1024px, dua kolom dengan ringkasan di samping).

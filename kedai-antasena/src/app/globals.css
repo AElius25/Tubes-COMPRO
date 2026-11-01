@@ -1,4 +1,4 @@
-/* ===== Token desain (diambil dari mockup Kedai WBGS) ===== */
+/* ===== Token desain (diambil dari mockup Kedai Antasena) ===== */
 :root {
   --red: #b3271e;
   --red-dark: #8f1f18;
@@ -179,6 +179,22 @@ a {
   font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.table-badge--btn {
+  border: 0;
+  cursor: pointer;
+}
+.table-edit__input {
+  width: 92px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1.5px solid var(--red);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
 }
 
 /* ===== Tombol ===== */

@@ -40,6 +40,8 @@ interface OrderContextValue extends PersistedOrder {
   add: (id: string) => void;
   setQty: (id: string, qty: number) => void;
   setNote: (note: string) => void;
+  /** Ganti nomor meja (huruf/angka, maks 6 karakter). */
+  setTable: (table: string) => void;
   setMethod: (id: string) => void;
   /** Dipanggil saat menekan "Bayar Sekarang": membuat nomor pesanan dan batas waktu. */
   startPayment: () => void;
@@ -47,7 +49,7 @@ interface OrderContextValue extends PersistedOrder {
   reset: () => void;
 }
 
-const STORAGE_KEY = 'kedai-wbgs-order-v1';
+const STORAGE_KEY = 'kedai-antasena-order-v1';
 const DEFAULT_TABLE = '09';
 
 const initialOrder: PersistedOrder = {
@@ -127,6 +129,10 @@ export function OrderProvider({ children }: { children: ReactNode }) {
     [],
   );
 
+  const setTable = useCallback((table: string) => {
+    const t = table.trim();
+    if (/^[0-9A-Za-z-]{1,6}$/.test(t)) setOrder((prev) => ({ ...prev, table: t }));
+  }, []);
   const setNote = useCallback((note: string) => setOrder((prev) => ({ ...prev, note })), []);
   const setMethod = useCallback(
     (id: string) => setOrder((prev) => ({ ...prev, methodId: getMethod(id).id })),
@@ -138,7 +144,7 @@ export function OrderProvider({ children }: { children: ReactNode }) {
       const windowMs = getPaymentWindowMs(getMethod(prev.methodId).kind);
       return {
         ...prev,
-        orderNo: prev.orderNo ?? `WBGS-${Math.floor(100 + Math.random() * 900)}`,
+        orderNo: prev.orderNo ?? `ANT-${Math.floor(100 + Math.random() * 900)}`,
         deadline: windowMs === null ? null : Date.now() + windowMs,
       };
     });
@@ -165,11 +171,12 @@ export function OrderProvider({ children }: { children: ReactNode }) {
       add,
       setQty,
       setNote,
+      setTable,
       setMethod,
       startPayment,
       reset,
     };
-  }, [order, ready, add, setQty, setNote, setMethod, startPayment, reset]);
+  }, [order, ready, add, setQty, setNote, setTable, setMethod, startPayment, reset]);
 
   return <OrderContext.Provider value={value}>{children}</OrderContext.Provider>;
 }
